@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const newLang = currentLang === 'th' ? 'en' : 'th';
     document.documentElement.setAttribute('lang', newLang);
     langText.textContent = newLang.toUpperCase();
+    if (typeof updateActiveNav === 'function') {
+      updateActiveNav();
+    }
   });
 
   // 2. Theme Switcher Logic
@@ -28,10 +31,27 @@ document.addEventListener('DOMContentLoaded', () => {
     themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
   }
   
-  // Set initial theme based on system preference if not set
-  if (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  // Safe storage helper to prevent crash in security-restricted environments
+  const getStoredTheme = () => {
+    try {
+      return localStorage.getItem('theme') || localStorage.theme || null;
+    } catch (e) {
+      return null;
+    }
+  };
+  
+  const setStoredTheme = (value) => {
+    try {
+      localStorage.setItem('theme', value);
+    } catch (e) {
+      // ignore
+    }
+  };
+
+  const storedTheme = getStoredTheme();
+  if (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     document.documentElement.classList.add('dark');
-  } else if (localStorage.theme === 'dark') {
+  } else if (storedTheme === 'dark') {
     document.documentElement.classList.add('dark');
   } else {
     document.documentElement.classList.remove('dark');
@@ -40,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   themeToggle.addEventListener('click', () => {
     const isDark = document.documentElement.classList.toggle('dark');
-    localStorage.theme = isDark ? 'dark' : 'light';
+    setStoredTheme(isDark ? 'dark' : 'light');
     updateThemeUI();
   });
 
@@ -90,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })).filter(item => item.el && (item.link || item.mobileLink));
 
   let isScrolling = false;
-  const updateActiveNav = () => {
+  function updateActiveNav() {
     const scrollPos = window.scrollY + 140; // Offset for sticky nav bar
     let activeSecId = null;
 
@@ -105,6 +125,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!activeSecId && sections.length > 0) {
       activeSecId = sections[0].id;
+    }
+
+    // Update Document Title based on current section & language
+    const pageTitleMap = {
+      th: {
+        about: 'เกี่ยวกับ | S - Mongkon Onnom',
+        resume: 'ประวัติการทำงาน | S - Mongkon Onnom',
+        portfolio: 'ผลงาน | S - Mongkon Onnom',
+        blog: 'บล็อก | S - Mongkon Onnom',
+        contact: 'ติดต่อ | S - Mongkon Onnom'
+      },
+      en: {
+        about: 'About | S - Mongkon Onnom',
+        resume: 'Resume | S - Mongkon Onnom',
+        portfolio: 'Portfolio | S - Mongkon Onnom',
+        blog: 'Blog | S - Mongkon Onnom',
+        contact: 'Contact | S - Mongkon Onnom'
+      }
+    };
+    const currentLang = document.documentElement.getAttribute('lang') || 'th';
+    const newTitle = pageTitleMap[currentLang]?.[activeSecId] || 'S - Mongkon Onnom | Portfolio';
+    if (document.title !== newTitle) {
+      document.title = newTitle;
     }
 
     // Update nav links classes
@@ -131,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-  };
+  }
 
   window.addEventListener('scroll', () => {
     if (!isScrolling) {
@@ -285,6 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const portfolioModal = document.getElementById('portfolio-modal');
   const closeModalBtn = document.getElementById('close-modal-btn');
   const modalImg = document.getElementById('modal-project-img');
+  const modalVideo = document.getElementById('modal-project-video');
   const modalCategory = document.getElementById('modal-project-category');
   const modalTitle = document.getElementById('modal-project-title');
   const modalDescTh = document.getElementById('modal-project-desc-th');
@@ -292,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalCtaBtn = document.getElementById('modal-cta-btn');
   const modalPdfBtn = document.getElementById('modal-pdf-btn');
   const galleryContainer = document.getElementById('modal-gallery-container');
-
+ 
   workCards.forEach(card => {
     card.addEventListener('click', () => {
       const title = card.getAttribute('data-title');
@@ -302,6 +346,31 @@ document.addEventListener('DOMContentLoaded', () => {
       const img = card.getAttribute('data-img');
       const gallery = card.getAttribute('data-gallery');
       const pdf = card.getAttribute('data-pdf');
+      const video = card.getAttribute('data-video');
+
+      // Handle Video Embedding
+      if (modalVideo) {
+        const parentContainer = modalVideo.parentElement;
+        if (video) {
+          modalVideo.src = video;
+          modalVideo.classList.remove('hidden');
+          modalImg.classList.add('hidden');
+          if (parentContainer) {
+            parentContainer.classList.remove('aspect-video');
+            parentContainer.classList.add('aspect-[16/9.6]');
+          }
+        } else {
+          modalVideo.src = '';
+          modalVideo.classList.add('hidden');
+          modalImg.classList.remove('hidden');
+          if (parentContainer) {
+            parentContainer.classList.remove('aspect-[16/9.6]');
+            parentContainer.classList.add('aspect-video');
+          }
+        }
+      } else {
+        modalImg.classList.remove('hidden');
+      }
 
       modalImg.src = img;
       modalImg.alt = title;
@@ -309,19 +378,24 @@ document.addEventListener('DOMContentLoaded', () => {
       modalTitle.textContent = title;
       modalDescTh.innerHTML = descTh;
       modalDescEn.innerHTML = descEn;
-
+ 
       // Handle PDF/Link button visibility and text
       if (modalPdfBtn) {
         if (pdf) {
           modalPdfBtn.href = pdf;
           modalPdfBtn.classList.remove('hidden');
           
-          const isPdf = pdf.toLowerCase().endsWith('.pdf') || pdf.includes('drive.google.com');
+          const isPdf = pdf.toLowerCase().endsWith('.pdf') || pdf.includes('drive.google.com') && !video;
+          const isVideo = !!video;
           const thSpan = modalPdfBtn.querySelector('.lang-th');
           const enSpan = modalPdfBtn.querySelector('.lang-en');
           const iconSpan = modalPdfBtn.querySelector('.material-symbols-outlined');
           
-          if (isPdf) {
+          if (isVideo) {
+            if (iconSpan) iconSpan.textContent = 'open_in_new';
+            if (thSpan) thSpan.textContent = 'เปิดดูวิดีโอบน Google Drive';
+            if (enSpan) enSpan.textContent = 'Open Video on Google Drive';
+          } else if (isPdf) {
             if (iconSpan) iconSpan.textContent = 'picture_as_pdf';
             if (thSpan) thSpan.textContent = 'ดู PDF ฉบับเต็ม';
             if (enSpan) enSpan.textContent = 'View Full PDF';
@@ -334,11 +408,11 @@ document.addEventListener('DOMContentLoaded', () => {
           modalPdfBtn.classList.add('hidden');
         }
       }
-
+ 
       // Handle extra images gallery
       if (galleryContainer) {
         galleryContainer.innerHTML = '';
-        if (gallery) {
+        if (gallery && !video) { // only show gallery when it's not a video-oriented layout
           galleryContainer.classList.remove('hidden');
           const imgList = gallery.split(',').map(s => s.trim()).filter(s => s.length > 0);
           const allImgs = [img, ...imgList];
@@ -366,17 +440,25 @@ document.addEventListener('DOMContentLoaded', () => {
           galleryContainer.classList.add('hidden');
         }
       }
-
+ 
       portfolioModal.classList.remove('hidden');
       document.body.style.overflow = 'hidden'; // lock scroll
     });
   });
-
+ 
   function closeModal() {
     portfolioModal.classList.add('hidden');
     document.body.style.overflow = ''; // unlock scroll
+    if (modalVideo) {
+      modalVideo.src = ''; // stop video playback immediately
+      const parentContainer = modalVideo.parentElement;
+      if (parentContainer) {
+        parentContainer.classList.remove('aspect-[16/9.6]');
+        parentContainer.classList.add('aspect-video');
+      }
+    }
   }
-
+ 
   if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
   if (portfolioModal) {
     portfolioModal.addEventListener('click', (e) => {
@@ -961,13 +1043,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 250);
     };
 
-    downloadBtnTh.addEventListener('click', () => {
+    downloadBtnTh.addEventListener('click', (e) => {
+      e.preventDefault();
       if (typeof toggleDropdown === 'function') toggleDropdown(false);
-      // Let the browser handle standard anchor link download for static PDF
+      handleDownload('th');
     });
-    downloadBtnEn.addEventListener('click', () => {
+    downloadBtnEn.addEventListener('click', (e) => {
+      e.preventDefault();
       if (typeof toggleDropdown === 'function') toggleDropdown(false);
-      // Let the browser handle standard anchor link download for static PDF
+      handleDownload('en');
     });
   }
 
@@ -1211,4 +1295,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Launch Continuous Loop
     requestAnimationFrame(animate);
   }
+
+  // Initialize active navigation highlight and dynamic page title on load
+  updateActiveNav();
 });

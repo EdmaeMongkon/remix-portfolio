@@ -391,7 +391,7 @@
   <nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-7xl rounded-full bg-surface-glass-light dark:bg-surface-glass-dark backdrop-blur-xl border border-outline-muted dark:border-outline-muted-dark shadow-sm z-30 flex justify-between items-center px-6 md:px-12 py-3.5 transition-all duration-300">
     <!-- Brand Logo -->
     <a href="#about" class="flex items-center gap-2.5 hover:opacity-90 transition-opacity">
-      <img src="./assets/images/logo.webp" alt="S Logo" class="w-8 h-8 rounded-full object-cover"/>
+      <img src="./assets/images/logo.webp" alt="S Logo" class="w-8 h-8 rounded-full object-cover" loading="eager" width="32" height="32"/>
       <span class="font-display text-xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-vibrant-pink">Mongkon O.</span>
     </a>
 
@@ -441,7 +441,7 @@
         <!-- Drawer Header with Logo and Close Button -->
         <div class="flex items-center justify-between pb-5 border-b border-outline-muted dark:border-outline-muted-dark mb-6">
           <div class="flex items-center gap-2">
-            <img src="./assets/images/logo.webp" alt="S Logo" class="w-7 h-7 rounded-full object-cover"/>
+            <img src="./assets/images/logo.webp" alt="S Logo" class="w-7 h-7 rounded-full object-cover" loading="eager" width="28" height="28"/>
             <span class="font-display text-base font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-vibrant-pink">Mongkon O.</span>
           </div>
           <button class="p-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-all text-on-surface-light/70 dark:text-on-surface-dark/70" id="mobile-menu-close" aria-label="Close menu">
@@ -487,7 +487,7 @@
   <div class="fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300" id="drawer-overlay"></div>
 
   <!-- Content Canvas -->
-  <main class="max-w-7xl mx-auto px-4 md:px-12 pt-32 pb-24 overflow-visible">
+  <main class="relative z-10 max-w-7xl mx-auto px-4 md:px-12 pt-32 pb-24 overflow-visible">
 
     <!-- ABOUT/HERO SECTION WRAPPER -->
     <div id="about-section-wrapper" class="overflow-visible">
@@ -557,7 +557,7 @@
           
           <!-- Animated Glass Frame -->
           <div class="glass-card w-[85%] h-[85%] rounded-[36%] overflow-hidden flex items-center justify-center border border-white/40 shadow-2xl relative transition-transform duration-700 hover:rotate-6 hover:scale-105" style="animation: avatarFloat 8s ease-in-out infinite;">
-            <img src="./assets/images/smongkon.webp" alt="Mongkon Onnom" class="w-full h-full object-cover scale-105"/>
+            <img src="./assets/images/smongkon.webp" alt="Mongkon Onnom" class="w-full h-full object-cover scale-105" loading="eager" width="420" height="420"/>
           </div>
         </div>
       </div>
@@ -567,21 +567,21 @@
     <section class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-28">
       <!-- Developed Websites -->
       <div class="glass-card p-6 rounded-lg text-center flex flex-col items-center">
-        <span class="font-display text-4xl md:text-5xl font-extrabold text-primary mb-2 stat-number" data-stat-category="web" data-target="0" data-suffix="+">0+</span>
+        <span class="font-display text-4xl md:text-5xl font-extrabold text-primary mb-2 stat-number" data-stat-category="web" data-target="7" data-suffix="+">0+</span>
         <span class="font-display text-xs font-bold tracking-wider text-on-surface-light/60 dark:text-on-surface-dark/60 uppercase">
           <span class="lang-th">เว็บที่พัฒนา</span><span class="lang-en">Websites Developed</span>
         </span>
       </div>
       <!-- Graphic & 3D Designs -->
       <div class="glass-card p-6 rounded-lg text-center flex flex-col items-center">
-        <span class="font-display text-4xl md:text-5xl font-extrabold text-vibrant-blue mb-2 stat-number" data-stat-category="graphics" data-target="0" data-suffix="+">0+</span>
+        <span class="font-display text-4xl md:text-5xl font-extrabold text-vibrant-blue mb-2 stat-number" data-stat-category="graphics" data-target="15" data-suffix="+">0+</span>
         <span class="font-display text-xs font-bold tracking-wider text-on-surface-light/60 dark:text-on-surface-dark/60 uppercase">
           <span class="lang-th">กราฟิกที่ดีไซน์</span><span class="lang-en">Graphic & 3D Designs</span>
         </span>
       </div>
       <!-- Content Creator -->
       <div class="glass-card p-6 rounded-lg text-center flex flex-col items-center">
-        <span class="font-display text-4xl md:text-5xl font-extrabold text-vibrant-pink mb-2 stat-number" data-stat-category="creator" data-target="0" data-suffix="+">0+</span>
+        <span class="font-display text-4xl md:text-5xl font-extrabold text-vibrant-pink mb-2 stat-number" data-stat-category="creator" data-target="8" data-suffix="+">0+</span>
         <span class="font-display text-xs font-bold tracking-wider text-on-surface-light/60 dark:text-on-surface-dark/60 uppercase">
           <span class="lang-th">คอนเทนต์ครีเอเตอร์</span><span class="lang-en">Content Creator</span>
         </span>
@@ -1236,6 +1236,18 @@
                   <span class="lang-th">ปริญญาตรี คณะวิทยาศาสตร์และเทคโนโลยี สาขาดิจิทัลมีเดีย</span>
                   <span class="lang-en">Bachelor of Science (B.Sc.), Digital Media Major, Faculty of Science and Technology</span>
                 </p>
+                <div class="flex flex-wrap gap-2.5 mt-3">
+                  <a href="./assets/transcript-thonburi-thai.pdf" download="Transcript_Thonburi_Thai.pdf" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-bold rounded-full bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/20 transition-all hover:scale-[1.03] active:scale-95 shadow-sm">
+                    <span class="material-symbols-outlined text-sm">download</span>
+                    <span class="lang-th">ใบเกรด (TH)</span>
+                    <span class="lang-en">Transcript (TH)</span>
+                  </a>
+                  <a href="./assets/transcript-thonburi-eng.pdf" download="Transcript_Thonburi_Eng.pdf" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-bold rounded-full bg-purple-600/10 hover:bg-purple-600 text-purple-600 hover:text-white border border-purple-600/20 transition-all hover:scale-[1.03] active:scale-95 shadow-sm">
+                    <span class="material-symbols-outlined text-sm">download</span>
+                    <span class="lang-th">ใบเกรด (EN)</span>
+                    <span class="lang-en">Transcript (EN)</span>
+                  </a>
+                </div>
               </div>
 
               <!-- Ed 2 -->
@@ -1597,7 +1609,7 @@
               </div>
             </div>
             <div class="lg:w-1/2 relative overflow-hidden h-[300px] lg:h-auto min-h-[350px]">
-              <img alt="TikTok Return Scanner" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/tiktok-scanner-ui.webp"/>
+              <img alt="TikTok Return Scanner" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/tiktok-scanner-ui.webp" loading="lazy"/>
             </div>
           </div>
         </div>
@@ -1606,7 +1618,7 @@
         <div class="md:col-span-8 group cursor-pointer work-card tilt-card transition-all duration-500 reveal-hidden" data-category="photography" data-title="Lace Shirt Catalog Photography &amp; Design" data-desc-th="ผลงานการถ่ายภาพแฟชั่นเสื้อผ้าชุดไทยมงคลแนวร่วมสมัยและการออกแบบรูปเล่มแค็ตตาล็อกสินค้าแบรนด์ ALMINI โดดเด่นด้วยโทนสีที่หรูหราและการจัดวางกราฟิกเพื่อสื่อสารแบรนด์อย่างมีรสนิยม" data-desc-en="Contemporary Thai traditional lace shirt fashion catalog photography and layout design for the ALMINI brand. Featuring elegant color grading and branding typography layouts." data-img="./assets/images/shirt-catalog-1.webp" data-gallery="./assets/images/shirt-catalog-2.webp, ./assets/images/shirt-catalog-3.webp, ./assets/images/shirt-catalog-4.webp" data-pdf="https://drive.google.com/drive/folders/1o_Axhd0typGca3HF162_AbX4JlNTMSEZ?usp=sharing">
           <div class="glass-card rounded-lg overflow-hidden h-full flex flex-col justify-between">
             <div class="relative h-[380px] overflow-hidden">
-              <img alt="Lace Shirt Catalog" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/shirt-catalog-1.webp"/>
+              <img alt="Lace Shirt Catalog" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/shirt-catalog-1.webp" loading="lazy"/>
               <div class="absolute inset-0 bg-gradient-to-t from-background-light/90 dark:from-background-dark/90 to-transparent"></div>
               <div class="absolute bottom-6 left-6 flex gap-2">
                 <span class="bg-vibrant-pink text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">PHOTOGRAPHY</span>
@@ -1630,7 +1642,7 @@
         <div class="md:col-span-4 group cursor-pointer work-card tilt-card transition-all duration-500 reveal-hidden" data-category="web" data-title="TypeZen - Premium Typing Practice Web App" data-desc-th="เว็บแอปพลิเคชันฝึกพิมพ์สัมผัสสุดล้ำสมัย รองรับสองภาษา (ไทย-อังกฤษ) ดีไซน์สไตล์ Glassmorphism ระบบจำลองเสียงแมคคานิคอลคีย์บอร์ดความหน่วงต่ำ แอนิเมชันสะเก็ดแสง Canvas และระบบ Flow Mode ช่วยจับเวลาและวิเคราะห์สถิติ WPM ความถูกต้อง คอมโบ และปุ่มที่พิมพ์ผิดอย่างแม่นยำ" data-desc-en="A premium, ultra-responsive web application for typing practice supporting both Thai and English. Featuring high-fidelity synthesized mechanical keyboard sound profiles, dynamic canvas particle effects, streak-based Flow Mode visual fx, and analytics tracking for typing accuracy, WPM, and common typos." data-img="./assets/images/typezen-preview-card.webp" data-gallery="" data-pdf="https://edmaemongkon.github.io/typing-practice/">
           <div class="glass-card rounded-lg overflow-hidden h-full flex flex-col justify-between">
             <div class="relative h-[250px] overflow-hidden">
-              <img alt="TypeZen Typing App" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/typezen-preview-card.webp"/>
+              <img alt="TypeZen Typing App" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/typezen-preview-card.webp" loading="lazy"/>
               <div class="absolute bottom-4 left-4 flex gap-2">
                 <span class="bg-vibrant-blue text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">WEB APP</span>
                 <span class="bg-primary text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">JS (ES6+)</span>
@@ -1661,7 +1673,7 @@
               </p>
             </div>
             <div class="md:w-1/2 relative overflow-hidden h-[250px] md:h-auto">
-              <img alt="Shoe Catalog" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/shoe-catalog-new.webp"/>
+              <img alt="Shoe Catalog" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/shoe-catalog-new.webp" loading="lazy"/>
             </div>
           </div>
         </div>
@@ -1670,7 +1682,7 @@
         <div class="md:col-span-4 group cursor-pointer work-card tilt-card transition-all duration-500 reveal-hidden" data-category="web" data-title="Lumina Spin - Lucky Wheel" data-desc-th="ระบบวงล้อนำโชคและจับรางวัลระดับพรีเมียม ขับเคลื่อนด้วยอัลกอริทึมจำลองฟิสิกส์แรงเหวี่ยงและความเสียดทานเสมือนจริง สังเคราะห์เสียงเรียลไทม์ (Web Audio API) และระบบเอฟเฟกต์เฉลิมฉลองพลุกระดาษ Confetti คัดเลือกผู้โชคดีอย่างโปร่งใสพร้อมธีมให้เลือกถึง 11 รูปแบบ" data-desc-en="A premium virtual lucky wheel system. Powered by real-time physics algorithms for inertia, friction, and needle vibration, dynamic Web Audio API sound synthesis, and a high-performance confetti particle system. Features 11 custom visual themes for diverse event branding." data-img="./assets/images/lumina-preview-card.webp" data-gallery="" data-pdf="https://edmaemongkon.github.io/Lumina-Spin/">
           <div class="glass-card rounded-lg overflow-hidden h-full flex flex-col justify-between">
             <div class="relative h-[250px] overflow-hidden">
-              <img alt="Lumina Spin Lucky Wheel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/lumina-preview-card.webp"/>
+              <img alt="Lumina Spin Lucky Wheel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/lumina-preview-card.webp" loading="lazy"/>
               <div class="absolute bottom-4 left-4 flex gap-2">
                 <span class="bg-vibrant-blue text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">WEB APP</span>
                 <span class="bg-primary text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">JS (ES6+)</span>
@@ -1701,7 +1713,7 @@
               </p>
             </div>
             <div class="md:w-1/2 relative overflow-hidden h-[250px] md:h-auto">
-              <img alt='Here We Go Again Branding Mockup' class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/here-we-go-again-mockup-1.webp"/>
+              <img alt='Here We Go Again Branding Mockup' class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/here-we-go-again-mockup-1.webp" loading="lazy"/>
             </div>
           </div>
         </div>
@@ -1721,7 +1733,69 @@
               </p>
             </div>
             <div class="md:w-1/2 relative overflow-hidden h-[300px] md:h-auto min-h-[350px]">
-              <img alt="Cookware E-commerce Series" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/steamer-2tier-woodhandle.webp"/>
+              <img alt="Cookware E-commerce Series" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/steamer-2tier-woodhandle.webp" loading="lazy"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Card 1: Thanapornchai Port Tour -->
+        <div class="md:col-span-6 group cursor-pointer work-card tilt-card transition-all duration-500 reveal-hidden" data-category="photography" data-title="Thanapornchai Port - Warehouse Tour Video" data-desc-th="วิดีโอผลงานการถ่ายทำแนะนำคลังสินค้าและพื้นที่จัดเก็บของท่าเรือธนาพรชัย ท่า 23 เจาะลึกกระบวนการทำงานและการจัดเก็บสินค้าเกษตรระดับมาตรฐานแบบครบวงจร" data-desc-en="A professional promotional warehouse tour video for Thanapornchai Port Pier 23, highlighting internal logistics workflows and agricultural product storage facility standards." data-img="./assets/images/port-tour-preview.gif" data-gallery="" data-pdf="https://drive.google.com/file/d/1GB9hPwghdGXx4INrRpo3dgA1HAZnOQWy/view?usp=sharing" data-video="https://drive.google.com/file/d/1GB9hPwghdGXx4INrRpo3dgA1HAZnOQWy/preview">
+          <div class="glass-card rounded-lg overflow-hidden h-full flex flex-col justify-between">
+            <div class="relative h-[250px] overflow-hidden">
+              <img alt="Thanapornchai Port Warehouse Tour Video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/port-tour-preview.gif" loading="lazy"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-background-light/90 dark:from-background-dark/90 to-transparent"></div>
+              <div class="absolute bottom-6 left-6 flex gap-2">
+                <span class="bg-vibrant-pink text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">VIDEOGRAPHY</span>
+                <span class="bg-primary text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">LOGISTICS</span>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-display text-lg font-bold mb-2">
+                  <span class="lang-th">วิดีโอนำทัวร์โกดัง ท่าเรือธนาพรชัย ท่า 23</span>
+                  <span class="lang-en">Thanapornchai Port - Warehouse Tour Video</span>
+                </h3>
+                <p class="font-body text-xs text-on-surface-light/70 dark:text-on-surface-dark/70 leading-relaxed mb-4">
+                  <span class="lang-th">ผลงานการถ่ายทำและตัดต่อวิดีโอนำเสนอโกดังเก็บสินค้าเกษตร เจาะลึกระบบการจัดเก็บที่เป็นระบบของท่าเรือธนาพรชัย</span>
+                  <span class="lang-en">Promotional video showcasing agricultural warehouse and inventory systems at Thanapornchai Port Pier 23.</span>
+                </p>
+              </div>
+              <div class="flex items-center gap-1.5 text-primary text-xs font-bold mt-auto group-hover:translate-x-1 transition-transform">
+                <span class="material-symbols-outlined text-sm">play_circle</span>
+                <span class="lang-th">คลิกเพื่อรับชมวิดีโอ</span>
+                <span class="lang-en">Click to Play Video</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Card 2: Thanapornchai Port Intro -->
+        <div class="md:col-span-6 group cursor-pointer work-card tilt-card transition-all duration-500 reveal-hidden" data-category="photography" data-title="Thanapornchai Port - Facility Promo Video" data-desc-th="วิดีโอแนะนำและพรีเซนต์ภาพรวมการให้บริการท่าเทียบเรือเกษตรกรรมท่าเรือธนาพรชัย ท่า 23 นำเสนอความพร้อมของระบบขนถ่ายสินค้าเกษตรขึ้นลงเรือเดินทะเลอย่างมีประสิทธิภาพ" data-desc-en="A premium promotional facility overview video for Thanapornchai Port Pier 23, presenting agriculture shipping logistic operations and vessel loading infrastructure." data-img="./assets/images/port-intro-preview.gif" data-gallery="" data-pdf="https://drive.google.com/file/d/1GUDZky574xlRh1scRs1gacahrNDUOWIZ/view?usp=sharing" data-video="https://drive.google.com/file/d/1GUDZky574xlRh1scRs1gacahrNDUOWIZ/preview">
+          <div class="glass-card rounded-lg overflow-hidden h-full flex flex-col justify-between">
+            <div class="relative h-[250px] overflow-hidden">
+              <img alt="Thanapornchai Port Intro Video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/port-intro-preview.gif" loading="lazy"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-background-light/90 dark:from-background-dark/90 to-transparent"></div>
+              <div class="absolute bottom-6 left-6 flex gap-2">
+                <span class="bg-vibrant-pink text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">VIDEOGRAPHY</span>
+                <span class="bg-vibrant-blue text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">PROMOTION</span>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-display text-lg font-bold mb-2">
+                  <span class="lang-th">วิดีโอพรีเซนต์ท่าเทียบเรือ ท่าเรือธนาพรชัย ท่า 23</span>
+                  <span class="lang-en">Thanapornchai Port - Facility Promo Video</span>
+                </h3>
+                <p class="font-body text-xs text-on-surface-light/70 dark:text-on-surface-dark/70 leading-relaxed mb-4">
+                  <span class="lang-th">วิดีโอโฆษณาแนะนำท่าเทียบเรือและการขนถ่ายสินค้าเกษตรขึ้นลงเรือใหญ่ แสดงถึงความพร้อมในการบริการ</span>
+                  <span class="lang-en">Promotional video presenting agricultural vessel loading operations and docking facilities at Pier 23.</span>
+                </p>
+              </div>
+              <div class="flex items-center gap-1.5 text-primary text-xs font-bold mt-auto group-hover:translate-x-1 transition-transform">
+                <span class="material-symbols-outlined text-sm">play_circle</span>
+                <span class="lang-th">คลิกเพื่อรับชมวิดีโอ</span>
+                <span class="lang-en">Click to Play Video</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1747,7 +1821,7 @@
               </div>
             </div>
             <div class="lg:w-1/2 relative overflow-hidden h-[300px] lg:h-auto min-h-[350px]">
-              <img alt="Phukaew Pochana Desktop &amp; Mobile Preview" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/phukaew-pc.webp"/>
+              <img alt="Phukaew Pochana Desktop &amp; Mobile Preview" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/phukaew-pc.webp" loading="lazy"/>
             </div>
           </div>
         </div>
@@ -1773,7 +1847,7 @@
               </div>
             </div>
             <div class="lg:w-1/2 relative overflow-hidden h-[300px] lg:h-auto min-h-[350px]">
-              <img alt="Black Cafe Desktop &amp; Mobile Preview" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/black-cafe-pc-home.webp"/>
+              <img alt="Black Cafe Desktop &amp; Mobile Preview" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/black-cafe-pc-home.webp" loading="lazy"/>
             </div>
           </div>
         </div>
@@ -1799,7 +1873,7 @@
               </div>
             </div>
             <div class="lg:w-1/2 relative overflow-hidden h-[300px] lg:h-auto min-h-[350px]">
-              <img alt="Black Fitness Desktop &amp; Mobile Preview" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/black-fitness-pc-home.webp"/>
+              <img alt="Black Fitness Desktop &amp; Mobile Preview" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/black-fitness-pc-home.webp" loading="lazy"/>
             </div>
           </div>
         </div>
@@ -1808,7 +1882,7 @@
         <div class="md:col-span-4 group cursor-pointer work-card tilt-card transition-all duration-500 reveal-hidden" data-category="web" data-title="Lumina Residences - Luxury Beachfront Condo" data-desc-th="เว็บแอปพลิเคชันสำหรับโครงการอสังหาริมทรัพย์ระดับพรีเมียม (คอนโด พูลวิลล่า ที่ดิน) ดีไซน์สุดหรูสไตล์ Glassmorphism ระบบค้นหาและคัดกรองข้อมูลอสังหาฯ แบบเรียลไทม์ พร้อมด้วยระบบคำนวณสินเชื่อบ้านคำนวณเงินผ่อนรายเดือนอัตโนมัติ และระบบบุ๊คมาร์กบันทึกรายการโปรด" data-desc-en="A premium real estate single-page web application (SPA) featuring luxury beachfront listings, dynamic real-time catalog search filtering, slider-based dynamic mortgage amortization calculator, forms validation, and persistent bookmarks using browser localStorage." data-img="./assets/images/lumina-residences-preview.webp" data-gallery="" data-pdf="https://edmaemongkon.github.io/Lumina-Residences---Luxury-Beachfront-Condo/">
           <div class="glass-card rounded-lg overflow-hidden h-full flex flex-col justify-between">
             <div class="relative h-[250px] overflow-hidden">
-              <img alt="Lumina Residences Condo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/lumina-residences-preview.webp"/>
+              <img alt="Lumina Residences Condo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/lumina-residences-preview.webp" loading="lazy"/>
               <div class="absolute bottom-4 left-4 flex gap-2">
                 <span class="bg-vibrant-blue text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">WEB APP</span>
                 <span class="bg-primary text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">JS (ES6+)</span>
@@ -1828,7 +1902,7 @@
         <div class="md:col-span-4 group cursor-pointer work-card tilt-card transition-all duration-500 reveal-hidden" data-category="academic" data-title="Grass Cube" data-desc-th="โมเดล 3D ชิ้นแรกๆ ที่จำลองสนามหญ้าในรูปแบบทรงลูกบาศก์ที่ดูสมจริง ออกแบบแสงเงาให้สดใสและดูมีชีวิตชีวา" data-desc-en="A stylized 3D grass cube modeled in Blender. Rigged with lighting setups to emphasize surface details and grass shading properties." data-img="./assets/images/project-1.webp" data-gallery="" data-pdf="">
           <div class="glass-card rounded-lg overflow-hidden h-full flex flex-col justify-between">
             <div class="relative h-[250px] overflow-hidden">
-              <img alt="Grass Cube" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/project-1.webp"/>
+              <img alt="Grass Cube" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/project-1.webp" loading="lazy"/>
               <div class="absolute bottom-4 left-4 flex gap-2">
                 <span class="bg-vibrant-blue text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">BLENDER 3D</span>
               </div>
@@ -1847,7 +1921,7 @@
         <div class="md:col-span-4 group cursor-pointer work-card tilt-card transition-all duration-500 reveal-hidden" data-category="academic" data-title="Stormy Ocean" data-desc-th="การจำลองคลื่นในมหาสมุทรช่วงที่พายุเข้าในรูปแบบ 3D การสร้างฟิสิกส์คลื่นสะท้อน ลมพัด และละอองน้ำ" data-desc-en="3D ocean wave physics simulation built in Blender. Simulating storm-force winds, water refraction, and displacement modifiers." data-img="./assets/images/project-2.webp" data-gallery="" data-pdf="">
           <div class="glass-card rounded-lg overflow-hidden h-full flex flex-col justify-between">
             <div class="relative h-[250px] overflow-hidden">
-              <img alt="Stormy Ocean" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/project-2.webp"/>
+              <img alt="Stormy Ocean" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/project-2.webp" loading="lazy"/>
               <div class="absolute bottom-4 left-4 flex gap-2">
                 <span class="bg-vibrant-blue text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">BLENDER 3D</span>
               </div>
@@ -1877,7 +1951,7 @@
               </p>
             </div>
             <div class="lg:w-1/2 relative overflow-hidden h-[250px] lg:h-auto min-h-[300px]">
-              <img alt="Kaew Short Film" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/project-10.webp"/>
+              <img alt="Kaew Short Film" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/project-10.webp" loading="lazy"/>
             </div>
           </div>
         </div>
@@ -1886,7 +1960,7 @@
         <div class="md:col-span-6 group cursor-pointer work-card tilt-card transition-all duration-500 reveal-hidden" data-category="academic" data-title="2D Game (Platformer & UI)" data-desc-th="เกม 2D Platformer ที่เขียนด้วย Unity พัฒนาระบบควบคุมตัวละคร ฟิสิกส์การกระโดด การเก็บไอเทม และระบบหน้าตาเริ่มต้น (Start Menu) ตั้งค่าเสียง การเปลี่ยนผ่านฉากหลังด้วย C#" data-desc-en="A 2D Platformer game developed in Unity. Programming script for basic player movement, collision detection, item pickups, and a custom UI Start Menu with audio settings and smooth scene transitions." data-img="./assets/images/project-4.webp" data-gallery="./assets/images/project-4.webp, ./assets/images/project-5.webp, ./assets/images/project-6.webp, ./assets/images/project-7.webp, ./assets/images/project-8.webp, ./assets/images/project-9.webp" data-pdf="">
           <div class="glass-card rounded-lg overflow-hidden h-full flex flex-col justify-between">
             <div class="relative h-[280px] overflow-hidden">
-              <img alt="Unity 2D Game" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/project-4.webp"/>
+              <img alt="Unity 2D Game" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/project-4.webp" loading="lazy"/>
               <div class="absolute bottom-4 left-4 flex gap-2">
                 <span class="bg-vibrant-purple text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">UNITY 2D</span>
                 <span class="bg-primary text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">C# CODING / UI</span>
@@ -1906,7 +1980,7 @@
         <div class="md:col-span-6 group cursor-pointer work-card tilt-card transition-all duration-500 reveal-hidden" data-category="academic" data-title="Polygon Runway Workspace" data-desc-th="งานดีไซน์ฉากแบบ Low-poly 3D Isometric ที่เล่าถึงพื้นที่ทำงานขนาดจิ๋วสุดน่ารักและเน้นการจัดวางแสงสไตล์สตูดิโอ" data-desc-en="A cozy isometric workspace designed in low-poly 3D art style. Emphasizing lighting layout, custom props, and cozy colors." data-img="./assets/images/project-3.webp" data-gallery="" data-pdf="">
           <div class="glass-card rounded-lg overflow-hidden h-full flex flex-col justify-between">
             <div class="relative h-[280px] overflow-hidden">
-              <img alt="Polygon Runway Workspace" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/project-3.webp"/>
+              <img alt="Polygon Runway Workspace" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="./assets/images/project-3.webp" loading="lazy"/>
               <div class="absolute bottom-4 left-4 flex gap-2">
                 <span class="bg-vibrant-blue text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">ISOMETRIC ART</span>
               </div>
@@ -1925,7 +1999,7 @@
         <div class="md:col-span-4 group cursor-pointer work-card tilt-card transition-all duration-500 reveal-hidden" data-category="upcoming" data-title="Web 3D Product Customizer" data-desc-th="&lt;div class='space-y-4'&gt;&lt;div class='border-l-4 border-primary pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-primary uppercase tracking-wider mb-1'&gt;ปัญหา (Problem)&lt;/h4&gt;&lt;p class='text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 leading-relaxed'&gt;การซื้อสินค้าออนไลน์แบบเดิม ผู้ใช้ไม่สามารถเห็นมิติ รายละเอียด หรือความสมจริง of วัสดุได้ ทำให้เกิดความลังเลในการตัดสินใจซื้อ และมีอัตราการส่งคืนสินค้าสูงเมื่อพบว่าสีหรือวัสดุของจริงไม่ตรงกับภาพในเว็บ&lt;/p&gt;&lt;/div&gt;&lt;div class='border-l-4 border-vibrant-pink pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-vibrant-pink uppercase tracking-wider mb-1'&gt;วิธีแก้ปัญหา (Solution)&lt;/h4&gt;&lt;p class='text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 leading-relaxed'&gt;พัฒนาเว็บแอปสั่งทำสินค้าแบบ 3D Interactive ช่วยให้ลูกค้าหมุนดูสินค้าได้ 360 องศา ซูมดูรายละเอียด ปรับเปลี่ยนสีและลวดลายวัสดุได้แบบเรียลไทม์ผ่านบราวเซอร์ พร้อมเชื่อมต่อระบบตะกร้าสินค้าเพื่อให้กดสั่งซื้อได้ทันที&lt;/p&gt;&lt;/div&gt;&lt;div class='border-l-4 border-vibrant-purple pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-vibrant-purple uppercase tracking-wider mb-1'&gt;ความท้าทายทางเทคนิค (Technical Challenges)&lt;/h4&gt;&lt;ul class='list-disc pl-5 text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 space-y-1.5 leading-relaxed'&gt;&lt;li&gt;การบีบอัดและทำ Mesh Optimization สำหรับโมเดล 3D และจัด UV mapping ใน Blender เพื่อลดขนาดไฟล์ให้เหลือน้อยที่สุดเพื่อให้โหลดได้รวดเร็วบนอุปกรณ์พกพา&lt;/li&gt;&lt;li&gt;การปรับจูนแสงเงา (PBR &amp;amp; Studio Lighting Rig) และ Environment Map ใน React Three Fiber (R3F) ให้วัสดุและเงาสะท้อนมีความสมจริงสูงสุด&lt;/li&gt;&lt;li&gt;การผูก React State เข้ากับ Material/Mesh Nodes ของ GLTF เพื่อเปลี่ยนสี/วัสดุแบบเรียลไทม์โดยไม่เกิดอาการสะดุด (Lag)&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;" data-desc-en="&lt;div class='space-y-4'&gt;&lt;div class='border-l-4 border-primary pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-primary uppercase tracking-wider mb-1'&gt;Problem&lt;/h4&gt;&lt;p class='text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 leading-relaxed'&gt;Traditional e-commerce flat images fail to convey depth, scale, or texture details. This creates buying friction and results in high return rates when the physical product's materials do not match screen expectations.&lt;/p&gt;&lt;/div&gt;&lt;div class='border-l-4 border-vibrant-pink pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-vibrant-pink uppercase tracking-wider mb-1'&gt;Solution&lt;/h4&gt;&lt;p class='text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 leading-relaxed'&gt;An interactive 3D Web Customizer enabling clients to rotate products 360 degrees, inspect details, and swap PBR textures/colors in real-time. Features a seamless cart integration for instant checkouts.&lt;/p&gt;&lt;/div&gt;&lt;div class='border-l-4 border-vibrant-purple pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-vibrant-purple uppercase tracking-wider mb-1'&gt;Technical Challenges&lt;/h4&gt;&lt;ul class='list-disc pl-5 text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 space-y-1.5 leading-relaxed'&gt;&lt;li&gt;Aggressive poly-count reduction and UV layout optimization in Blender to keep file sizes small for quick mobile loads.&lt;/li&gt;&lt;li&gt;Calibrating physically based rendering (PBR), studio lighting setups, and environment maps in React Three Fiber (R3F) for photorealism.&lt;/li&gt;&lt;li&gt;Architecting state bindings to modify GLTF geometry meshes and sub-materials instantaneously without drops in frame rate.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;" data-img="./assets/images/customizer-mockup.webp" data-gallery="" data-pdf="">
           <div class="glass-card rounded-lg overflow-hidden h-full flex flex-col justify-between bg-white/95 dark:bg-slate-900/95">
             <div class="relative h-[220px] overflow-hidden">
-              <img src="./assets/images/customizer-mockup.webp" alt="Web 3D Product Customizer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+              <img src="./assets/images/customizer-mockup.webp" alt="Web 3D Product Customizer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy"/>
               <div class="absolute bottom-4 left-4 flex gap-2">
                 <span class="bg-gradient-to-r from-primary to-vibrant-pink text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase">
                   <span class="lang-th">เร็วๆ นี้</span><span class="lang-en">Coming Soon</span>
@@ -1957,7 +2031,7 @@
         <div class="md:col-span-4 group cursor-pointer work-card tilt-card transition-all duration-500 reveal-hidden" data-category="upcoming" data-title="E-Commerce Business Intelligence Dashboard" data-desc-th="&lt;div class='space-y-4'&gt;&lt;div class='border-l-4 border-primary pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-primary uppercase tracking-wider mb-1'&gt;ปัญหา (Problem)&lt;/h4&gt;&lt;p class='text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 leading-relaxed'&gt;เจ้าของร้านค้า E-commerce มักประสบปัญหาการวิเคราะห์ประสิทธิภาพร้านค้า ข้อมูลกระจัดกระจายอยู่ในแพลตฟอร์มต่างๆ หรือใน Google Sheets โดยไม่มีรูปแบบการมองเห็นข้อมูล (Data Visualization) ที่เอื้อต่อการตัดสินใจเชิงกลยุทธ์ เช่น การติดตามอัตราการส่งคืนสินค้า รายจ่ายซ่อนเร้น หรือช่วงวันขายดี&lt;/p&gt;&lt;/div&gt;&lt;div class='border-l-4 border-vibrant-pink pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-vibrant-pink uppercase tracking-wider mb-1'&gt;วิธีแก้ปัญหา (Solution)&lt;/h4&gt;&lt;p class='text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 leading-relaxed'&gt;ต่อยอดระบบสแกนเนอร์บาร์โค้ด TikTok Scanner เดิม พัฒนาเป็น Dashboard วิเคราะห์ข้อมูลระดับพรีเมียม ดึงข้อมูลดิบจากสเปรดชีตมาทำความสะอาด (Clean) ผ่าน Serverless API จากนั้นนำเสนอเป็นกราฟสถิติหลากมิติ (เช่น อัตราการคืนสินค้าตามหมวดหมู่, อัตราส่วนรายรับ-รายจ่ายรายเดือน, สินค้าทำกำไรสูงสุด) พร้อมระบบคาดการณ์แนวโน้มล่วงหน้า&lt;/p&gt;&lt;/div&gt;&lt;div class='border-l-4 border-vibrant-purple pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-vibrant-purple uppercase tracking-wider mb-1'&gt;ความท้าทายทางเทคนิค (Technical Challenges)&lt;/h4&gt;&lt;ul class='list-disc pl-5 text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 space-y-1.5 leading-relaxed'&gt;&lt;li&gt;การจัดการและแปลงข้อมูลดิบขนาดใหญ่ (Data Processing &amp;amp; Parsing) จาก Google Sheets API ให้พร้อมป้อนให้กับ React Charts Components (Recharts) โดยยังคงความรวดเร็วในการเรนเดอร์กราฟ&lt;/li&gt;&lt;li&gt;การออกแบบและเขียนระบบ caching เพื่อจำกัดจำนวนการดึงข้อมูลจากภายนอก ช่วยหลีกเลี่ยงการโดนจำกัดสิทธิ์ (API Rate Limits) และปรับปรุงประสิทธิภาพหน้าเพจ&lt;/li&gt;&lt;li&gt;การพัฒนาระบบสลับโหมดการแสดงผล (Dark/Light Mode) ที่เปลี่ยนธีมสีของทุกกราฟอย่างราบรื่น ไม่มีภาพกะพริบหรือเสียรูปทรงเรขาคณิต&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;" data-desc-en="&lt;div class='space-y-4'&gt;&lt;div class='border-l-4 border-primary pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-primary uppercase tracking-wider mb-1'&gt;Problem&lt;/h4&gt;&lt;p class='text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 leading-relaxed'&gt;E-commerce store owners struggle to gain deep strategic insights from raw transaction data. Key metrics such as product return trends, hidden logistic costs, and profit margins remain scattered across flat Google Sheets or platform logs without actionable visualizations.&lt;/p&gt;&lt;/div&gt;&lt;div class='border-l-4 border-vibrant-pink pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-vibrant-pink uppercase tracking-wider mb-1'&gt;Solution&lt;/h4&gt;&lt;p class='text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 leading-relaxed'&gt;An enterprise-grade Business Intelligence Dashboard extending the TikTok Scanner platform. It processes raw transaction logs, cleans data via secure Serverless functions, and renders multi-dimensional charts (e.g., return rates by category, monthly cash flow, top-performing items) to drive business decisions.&lt;/p&gt;&lt;/div&gt;&lt;div class='border-l-4 border-vibrant-purple pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-vibrant-purple uppercase tracking-wider mb-1'&gt;Technical Challenges&lt;/h4&gt;&lt;ul class='list-disc pl-5 text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 space-y-1.5 leading-relaxed'&gt;&lt;li&gt;Designing efficient data parser algorithms to structure unstructured spreadsheet arrays into clean datasets optimized for responsive Recharts layouts.&lt;/li&gt;&lt;li&gt;Implementing robust database caching mechanisms to minimize external API fetches, bypassing platform rate limits while maintaining near real-time synchronization.&lt;/li&gt;&lt;li&gt;Orchestrating seamless Tailwind CSS Dark/Light mode theme state transitions across complex HTML5 SVG charting components without graphic flickering.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;" data-img="./assets/images/dashboard-mockup.webp" data-gallery="" data-pdf="">
           <div class="glass-card rounded-lg overflow-hidden h-full flex flex-col justify-between bg-white/95 dark:bg-slate-900/95">
             <div class="relative h-[220px] overflow-hidden">
-              <img src="./assets/images/dashboard-mockup.webp" alt="E-Commerce BI Dashboard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+              <img src="./assets/images/dashboard-mockup.webp" alt="E-Commerce BI Dashboard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy"/>
               <div class="absolute bottom-4 left-4 flex gap-2">
                 <span class="bg-gradient-to-r from-primary to-vibrant-pink text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase">
                   <span class="lang-th">เร็วๆ นี้</span><span class="lang-en">Coming Soon</span>
@@ -1989,7 +2063,7 @@
         <div class="md:col-span-4 group cursor-pointer work-card tilt-card transition-all duration-500 reveal-hidden" data-category="upcoming" data-title="Real-time Booking &amp; SaaS Portal" data-desc-th="&lt;div class='space-y-4'&gt;&lt;div class='border-l-4 border-primary pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-primary uppercase tracking-wider mb-1'&gt;ปัญหา (Problem)&lt;/h4&gt;&lt;p class='text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 leading-relaxed'&gt;ระบบจองคิวออนไลน์ทั่วไปมักเกิดปัญหาคิวทับซ้อน ผู้ใช้ต้องกดยืนยันหลายขั้นตอน หรือไม่สามารถตรวจสอบความว่างของเวลาได้แบบเรียลไทม์ นอกจากนี้ฝั่งผู้จัดการร้าน (Admin) ยังขาดแผงควบคุมที่อัปเดตสถานะคิวจองแบบสดๆ ทำให้บริการตกหล่นและเสียโอกาสทางธุรกิจ&lt;/p&gt;&lt;/div&gt;&lt;div class='border-l-4 border-vibrant-pink pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-vibrant-pink uppercase tracking-wider mb-1'&gt;วิธีแก้ปัญหา (Solution)&lt;/h4&gt;&lt;p class='text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 leading-relaxed'&gt;พัฒนาระบบจองคิวและพอร์ทัลบริการแบบ SaaS เต็มรูปแบบ (รองรับธุรกิจเช่นร้านภู่แก้วโภชนา และ Black Fitness) ให้ผู้ใช้สามารถเลือกเวลาว่างบนปฏิทินที่เช็กสล็อตอัตโนมัติแบบเรียลไทม์ มีหน้าควบคุม (Admin Portal) สำหรับจัดการคิว ยกเลิก ย้ายคิว และระบุสถานะ พร้อมติดตั้งระบบชำระเงินจำลอง (Stripe Sandbox) และระบบแจ้งเตือนอัตโนมัติ&lt;/p&gt;&lt;/div&gt;&lt;div class='border-l-4 border-vibrant-purple pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-vibrant-purple uppercase tracking-wider mb-1'&gt;ความท้าทายทางเทคนิค (Technical Challenges)&lt;/h4&gt;&lt;ul class='list-disc pl-5 text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 space-y-1.5 leading-relaxed'&gt;&lt;li&gt;การป้องกันปัญหาการจองซ้ำซ้อนในเวลาเสี้ยววินาที (Race Conditions) โดยใช้ระบบคิวธุรกรรมฐานข้อมูล (Database Transactions / Locks) ใน PostgreSQL&lt;/li&gt;&lt;li&gt;การซิงโครไนซ์สถานะปฏิทินและการแจ้งเตือนระหว่างฝั่งลูกค้าและฝั่งแอดมินแบบทันที (Real-time WebSockets / Socket.io) เพื่อแสดงคิวที่อัปเดตล่าสุดโดยไม่ต้องรีเฟรชหน้าเว็บ&lt;/li&gt;&lt;li&gt;การจัดการ State ของปฏิทินที่ซับซ้อนและการตรวจสอบช่วงเวลาทำงาน (Opening Hours, Time Slot Splits) ของธุรกิจต่างๆ ให้มีความยืดหยุ่นในแบบ Multi-tenant SaaS&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;" data-desc-en="&lt;div class='space-y-4'&gt;&lt;div class='border-l-4 border-primary pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-primary uppercase tracking-wider mb-1'&gt;Problem&lt;/h4&gt;&lt;p class='text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 leading-relaxed'&gt;Traditional booking systems frequently suffer from scheduling conflicts, lack of live availability checks, and complex user flows. Additionally, administrators miss a centralized live dashboard to manage bookings dynamically, leading to double-bookings or lost revenue.&lt;/p&gt;&lt;/div&gt;&lt;div class='border-l-4 border-vibrant-pink pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-vibrant-pink uppercase tracking-wider mb-1'&gt;Solution&lt;/h4&gt;&lt;p class='text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 leading-relaxed'&gt;A highly responsive Multi-tenant SaaS Booking &amp;amp; Client Portal. It enables real-time slot checking on a beautiful visual calendar, automates queue management for administrators, integrates mock Stripe payments for deposits, and triggers automated alerts when status updates occur.&lt;/p&gt;&lt;/div&gt;&lt;div class='border-l-4 border-vibrant-purple pl-3 py-1'&gt;&lt;h4 class='text-sm font-bold text-vibrant-purple uppercase tracking-wider mb-1'&gt;Technical Challenges&lt;/h4&gt;&lt;ul class='list-disc pl-5 text-sm text-on-surface-light/80 dark:text-on-surface-dark/80 space-y-1.5 leading-relaxed'&gt;&lt;li&gt;Solving database race conditions during concurrent high-traffic booking attempts by using relational transactions and row-level locking in PostgreSQL.&lt;/li&gt;&lt;li&gt;Achieving sub-second calendar status and queue synchronization between clients and administrators using persistent bi-directional WebSocket channels (Socket.io).&lt;/li&gt;&lt;li&gt;Structuring complex calendar logic to dynamically partition time slots based on custom business hours, staff capacities, and service durations.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;" data-img="./assets/images/booking-mockup.webp" data-gallery="" data-pdf="">
           <div class="glass-card rounded-lg overflow-hidden h-full flex flex-col justify-between bg-white/95 dark:bg-slate-900/95">
             <div class="relative h-[220px] overflow-hidden">
-              <img src="./assets/images/booking-mockup.webp" alt="Real-time Booking &amp; SaaS Portal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+              <img src="./assets/images/booking-mockup.webp" alt="Real-time Booking &amp; SaaS Portal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy"/>
               <div class="absolute bottom-4 left-4 flex gap-2">
                 <span class="bg-gradient-to-r from-primary to-vibrant-pink text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase">
                   <span class="lang-th">เร็วๆ นี้</span><span class="lang-en">Coming Soon</span>
@@ -2034,7 +2108,7 @@
         <!-- Post 1 -->
         <a href="https://youtu.be/zq80tI35HNw" target="_blank" rel="noopener noreferrer" class="glass-card rounded-lg overflow-hidden flex flex-col justify-between group cursor-pointer transition-all duration-300">
           <div class="relative h-[180px] overflow-hidden">
-            <img alt="Blog 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-1.webp"/>
+            <img alt="Blog 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-1.webp" loading="lazy"/>
             <span class="absolute top-4 left-4 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">YOUTUBE</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
@@ -2056,7 +2130,7 @@
         <!-- Post 2 -->
         <a href="https://youtu.be/pn1MXpJbi5o" target="_blank" rel="noopener noreferrer" class="glass-card rounded-lg overflow-hidden flex flex-col justify-between group cursor-pointer transition-all duration-300">
           <div class="relative h-[180px] overflow-hidden">
-            <img alt="Blog 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-2.webp"/>
+            <img alt="Blog 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-2.webp" loading="lazy"/>
             <span class="absolute top-4 left-4 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">YOUTUBE</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
@@ -2078,7 +2152,7 @@
         <!-- Post 3 -->
         <a href="https://www.youtube.com/playlist?list=PLNG5Rn1X2laII4lxw0K5kjUoKqNYy1MWK" target="_blank" rel="noopener noreferrer" class="glass-card rounded-lg overflow-hidden flex flex-col justify-between group cursor-pointer transition-all duration-300">
           <div class="relative h-[180px] overflow-hidden">
-            <img alt="Blog 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-3.webp"/>
+            <img alt="Blog 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-3.webp" loading="lazy"/>
             <span class="absolute top-4 left-4 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">YOUTUBE</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
@@ -2100,7 +2174,7 @@
         <!-- Post 4 -->
         <a href="https://www.youtube.com/playlist?list=PLNG5Rn1X2laK6DOA_NE7Ksvpn6sRePvEP" target="_blank" rel="noopener noreferrer" class="glass-card rounded-lg overflow-hidden flex flex-col justify-between group cursor-pointer transition-all duration-300">
           <div class="relative h-[180px] overflow-hidden">
-            <img alt="Blog 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-4.webp"/>
+            <img alt="Blog 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-4.webp" loading="lazy"/>
             <span class="absolute top-4 left-4 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">YOUTUBE</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
@@ -2122,7 +2196,7 @@
         <!-- Post 5 -->
         <a href="https://www.youtube.com/playlist?list=PLNG5Rn1X2laJ0bIJfCpbfjD5VEMBQV4UR" target="_blank" rel="noopener noreferrer" class="glass-card rounded-lg overflow-hidden flex flex-col justify-between group cursor-pointer transition-all duration-300">
           <div class="relative h-[180px] overflow-hidden">
-            <img alt="Blog 5" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-5.webp"/>
+            <img alt="Blog 5" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-5.webp" loading="lazy"/>
             <span class="absolute top-4 left-4 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">YOUTUBE</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
@@ -2144,7 +2218,7 @@
         <!-- Post 6 -->
         <a href="https://www.youtube.com/playlist?list=PLNG5Rn1X2laLOBnpIQ9QqAUWgy2w-GA5h" target="_blank" rel="noopener noreferrer" class="glass-card rounded-lg overflow-hidden flex flex-col justify-between group cursor-pointer transition-all duration-300">
           <div class="relative h-[180px] overflow-hidden">
-            <img alt="Blog 6" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-6.webp"/>
+            <img alt="Blog 6" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-6.webp" loading="lazy"/>
             <span class="absolute top-4 left-4 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">YOUTUBE</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
@@ -2166,7 +2240,7 @@
         <!-- Post 7 -->
         <a href="https://www.youtube.com/playlist?list=PLNG5Rn1X2laJcaEh9xls-d5Ec3Jh4YlPC" target="_blank" rel="noopener noreferrer" class="glass-card rounded-lg overflow-hidden flex flex-col justify-between group cursor-pointer transition-all duration-300">
           <div class="relative h-[180px] overflow-hidden">
-            <img alt="Blog 7" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-7.webp"/>
+            <img alt="Blog 7" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-7.webp" loading="lazy"/>
             <span class="absolute top-4 left-4 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">YOUTUBE</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
@@ -2188,7 +2262,7 @@
         <!-- Post 8 -->
         <a href="https://youtu.be/qzIx8JXY2Rg" target="_blank" rel="noopener noreferrer" class="glass-card rounded-lg overflow-hidden flex flex-col justify-between group cursor-pointer transition-all duration-300">
           <div class="relative h-[180px] overflow-hidden">
-            <img alt="Blog 8" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-8.webp"/>
+            <img alt="Blog 8" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="./assets/images/blog-8.webp" loading="lazy"/>
             <span class="absolute top-4 left-4 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">YOUTUBE</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
@@ -2249,7 +2323,7 @@
         <!-- Google Maps Link Block -->
         <a href="https://maps.app.goo.gl/LtmCn2UNHz2QbbYw7" target="_blank" rel="noopener noreferrer" class="block glass-card overflow-hidden rounded-lg group mt-4 border border-outline-muted dark:border-outline-muted-dark">
           <div class="relative aspect-video bg-slate-100 dark:bg-slate-900">
-            <img src="./assets/images/map-bangkok.webp" alt="Bangkok Map" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+            <img src="./assets/images/map-bangkok.webp" alt="Bangkok Map" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy"/>
             <div class="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-all flex items-center justify-center">
               <div class="px-5 py-2.5 bg-white/90 dark:bg-slate-900/90 text-primary dark:text-white rounded-full text-xs font-bold shadow-lg flex items-center gap-2">
                 <span class="material-symbols-outlined text-sm">location_on</span>
@@ -2327,8 +2401,9 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start mt-4 md:mt-0">
         <!-- Left Column: Image Gallery -->
         <div class="space-y-4">
-          <div class="aspect-video w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 shadow-inner border border-outline-muted dark:border-outline-muted-dark">
+          <div class="aspect-video w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 shadow-inner border border-outline-muted dark:border-outline-muted-dark relative">
             <img id="modal-project-img" src="" alt="" class="w-full h-full object-cover"/>
+            <iframe id="modal-project-video" src="" class="absolute inset-0 w-full h-full hidden" allow="autoplay; encrypted-media" allowfullscreen frameborder="0" scrolling="no" style="border: none; overflow: hidden;"></iframe>
           </div>
           <!-- Gallery Thumbnails for Multi-image projects -->
           <div id="modal-gallery-container" class="hidden grid grid-cols-4 gap-2"></div>
